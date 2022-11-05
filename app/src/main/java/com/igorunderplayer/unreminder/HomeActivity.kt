@@ -72,5 +72,10 @@ class HomeActivity : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
+
+        findViewById<Button>(R.id.addReminderButton).setOnClickListener {
+            val dialog = CreateReminderDialogFragment()
+            dialog.show(supportFragmentManager, "CreateReminderDialogFragment")
+        }
     }
 }

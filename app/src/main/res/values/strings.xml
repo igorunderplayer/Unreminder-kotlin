@@ -3,4 +3,6 @@
     <string name="google_webclient_id">822353990724-t4ptg08b6f8jkavnhnsd96t5t56ck6hd.apps.googleusercontent.com</string>
     <string name="add_reminder_button_text">Adicionar lembrete</string>
     <string name="logout_text">Sair</string>
+    <string name="reminder_name_textinput">Nome do seu lembrete</string>
+    <string name="reminder_details_textinput">Alguns detalhes</string>
 </resources>
