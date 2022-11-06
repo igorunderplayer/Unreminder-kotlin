@@ -7,12 +7,14 @@ import android.util.Log
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
+import com.google.firebase.Timestamp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.igorunderplayer.unreminder.models.Reminder
+import java.util.Calendar
 import java.util.UUID
 
 class CreateReminderDialogFragment : DialogFragment() {
@@ -46,6 +48,8 @@ class CreateReminderDialogFragment : DialogFragment() {
                 reminderData.title = titleInput.text.toString()
                 reminderData.details = detailsInput.text.toString()
                 reminderData.id = UUID.randomUUID().toString()
+                reminderData.createdAt = Timestamp(Calendar.getInstance().time)
+                reminderData.date = Timestamp(Calendar.getInstance().time)
 
 
                 db.collection("users/$userId/reminders").add(reminderData).addOnSuccessListener {

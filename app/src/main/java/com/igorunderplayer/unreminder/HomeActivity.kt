@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -49,7 +50,7 @@ class HomeActivity : AppCompatActivity() {
             Log.e ("Errinho", "cade o usuaru?")
         }
 
-        db.collection("users/${auth.currentUser?.uid}/reminders").addSnapshotListener { snapshot, _ ->
+        db.collection("users/${auth.currentUser?.uid}/reminders").orderBy("createdAt", Query.Direction.DESCENDING).addSnapshotListener { snapshot, _ ->
             if (snapshot != null) {
                 val titles = snapshot.documents.map { doc ->
                     val title = doc.data!!["title"]?.toString()
