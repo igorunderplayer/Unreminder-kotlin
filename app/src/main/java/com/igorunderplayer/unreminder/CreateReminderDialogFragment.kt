@@ -52,9 +52,12 @@ class CreateReminderDialogFragment : DialogFragment() {
                 reminderData.date = Timestamp(Calendar.getInstance().time)
 
 
-                db.collection("users/$userId/reminders").add(reminderData).addOnSuccessListener {
-                    Log.d("-==-=-=-=-=-=-=- Criado", "documento criado")
-                }
+                db.collection("users/$userId/reminders")
+                    .document(reminderData.id)
+                    .set(reminderData)
+                    .addOnSuccessListener {
+                        Log.d("-==-=-=-=-=-=-=- Criado", "documento criado")
+                    }
             }
             .setNegativeButton("Cancelar") { _, _ ->
                 Toast.makeText(activity, "cancelando", Toast.LENGTH_SHORT).show()
