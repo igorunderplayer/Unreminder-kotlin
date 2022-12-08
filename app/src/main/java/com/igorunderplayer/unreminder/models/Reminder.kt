@@ -3,9 +3,9 @@ package com.igorunderplayer.unreminder.models
 import com.google.firebase.Timestamp
 
 class Reminder {
-    lateinit var title: String
-    lateinit var details: String
-    lateinit var id: String
-    lateinit var date: Timestamp
-    lateinit var createdAt: Timestamp
+    var title: String = ""
+    var details: String = ""
+    var id: String = ""
+    var date: Timestamp? = null
+    var createdAt: Timestamp? = null
 }
